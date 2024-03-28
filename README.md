@@ -14,7 +14,7 @@
 
 ![Untitled](img/theory_4.png)
 
-![Untitled](img/theory_5.png)
+![Untitled](img/theory_5.jpg)
 
 ## Как запустить (linux)
 

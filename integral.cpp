@@ -5,15 +5,7 @@
 #define EPS 0.0001
 
 double integral::estim() {
-    int k = 2;
-    while(1) {
-        if(Taylor(M_PI, k) != 0 && Taylor(M_PI, k) < EPS*0.01) {
-            double x1 = 1/pow_my(2, k);
-            double x2 = 1-1/2;
-            return x1/x2;
-        }
-        k++;
-    }
+    return ((1/factorial(10))/(M_PI-1));
 }
 
 double integral::equation() {
@@ -33,7 +25,7 @@ double integral::equation() {
 
 double integral::antider(double x, int k) {
     if(k > 1) {
-        return Taylor(x, k)/(k/2);
+        return x*Taylor(x, k)/(k/2);
     } else {
         return 0;
     }
@@ -41,11 +33,15 @@ double integral::antider(double x, int k) {
 
 double integral::Taylor(double x, int k) {
     double result = 0;
-    if((k-1)%2 == 0) {
-        result = 0;
+    
+    if(k == 2) {
+        result = 0.5;
+    } else if((k-1)%2 != 0) {
+        result = pow_my(x, (k/2)-1)/factorial(k);
     } else {
-        result = pow_my(x, k/2)/factorial(k);
+        result = 0;
     }
+
     return result;
 }
 
